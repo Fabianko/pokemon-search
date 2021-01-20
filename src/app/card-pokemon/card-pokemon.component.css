@@ -1,0 +1,8 @@
+.border-card{
+    border-radius: 15px;
+    border: solid;
+    border-color: yellow;
+    border-width: 10px;
+    width:80%;
+    margin: auto;
+}
