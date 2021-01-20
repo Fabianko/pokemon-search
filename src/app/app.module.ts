@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CardPokemonComponent } from './card-pokemon/card-pokemon.component';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
 import { HttpClientModule } from '@angular/common/http';
+import {ApiPokemonService} from './api-pokemon.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ApiPokemonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

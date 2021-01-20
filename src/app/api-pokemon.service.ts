@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -7,13 +7,26 @@ import { Observable } from 'rxjs';
 })
 
 export class ApiPokemonService {
-  url: string = "https://pokeapi.co/api/v2/pokemon/"
-  public pokemonSelected;
+  url: string = "https://pokeapi.co/api/v2/pokemon/";
+  private _pokemonSelected;
+  @Output() pokemonSelectedChanged: EventEmitter<any> = new EventEmitter();
+
   constructor(private http: HttpClient) { }
  
   public getPokemon(value: string):Observable<any> {
     
     return this.http.get(this.url + value);
+  }
+
+  public get pokemonSelected() {
+    return this._pokemonSelected;
+  }
+
+  public set pokemonSelected(value:any) {
+    this._pokemonSelected = value;
+    setTimeout(() =>
+      this.pokemonSelectedChanged.emit(true)
+    ,0)
   }
 
 }

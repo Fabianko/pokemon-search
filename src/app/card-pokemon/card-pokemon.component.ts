@@ -8,10 +8,25 @@ import {ApiPokemonService} from '../api-pokemon.service';
   providers: [ApiPokemonService]
 })
 export class CardPokemonComponent implements OnInit {
-
+  pokemonSelected: any;
   constructor(public apiService: ApiPokemonService) { }
 
   ngOnInit(): void {
+    this.apiService.pokemonSelectedChanged.subscribe(
+      () => {
+       this.reloadPokemonSelected();
+      }
+    );
+  }
+
+  public reloadPokemonSelected() {
+    this.pokemonSelected = undefined;
+    setTimeout(() => {
+      this.pokemonSelected = this.apiService.pokemonSelected;
+    },0)
+    debugger
+  
   }
 
 }
+
