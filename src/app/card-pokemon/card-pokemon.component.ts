@@ -13,7 +13,7 @@ export class CardPokemonComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.pokemonSelectedChanged.subscribe(
-      () => {
+      (data) => {
        this.reloadPokemonSelected();
       }
     );
@@ -24,7 +24,6 @@ export class CardPokemonComponent implements OnInit {
     setTimeout(() => {
       this.pokemonSelected = this.apiService.pokemonSelected;
     },0)
-    debugger
   
   }
 

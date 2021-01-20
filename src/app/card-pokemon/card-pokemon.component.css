@@ -6,3 +6,19 @@
     width:80%;
     margin: auto;
 }
+
+.image-principal{
+    width:300px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.poke-name{
+    margin: 0px;
+    font-weight: bold;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.poke-id{
+    font-size: 15px;
+}

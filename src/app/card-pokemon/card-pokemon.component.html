@@ -1,9 +1,42 @@
-
-<div class="border-card" *ngIf="pokemonSelected">
-    <div>
-        {{pokemonSelected.name}}
+<div *ngIf="pokemonSelected" class="card border-primary mb-3">
+  <div class="card-header">
+    <p class="poke-name">
+        {{ pokemonSelected.name }}
+        <span class="poke-id">
+            [{{ pokemonSelected.id }}]
+        </span>
+    </p>
+    
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6 ">
+        <img
+          src="{{
+            pokemonSelected.sprites.other['official-artwork'].front_default
+          }}"
+          class="image-principal "
+        />
+      </div>
+      <div class="col-md-6">
+        <p style="margin:0px;">base experience: {{ pokemonSelected.base_experience }}</p>
+        <p style="margin:0px;">height: {{ pokemonSelected.height }}</p>
+        <p>weight: {{ pokemonSelected.weight }}</p>
+        <div *ngFor="let item of pokemonSelected.stats">
+            {{item.stat.name}}
+          <div class="progress">
+            
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              [style.width]="item.base_stat + '%'"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 75%"
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-        description
-    </div>
+  </div>
 </div>

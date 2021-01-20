@@ -4,9 +4,12 @@
       <div class="input-group mb-3">
         <legend>search your favorite pokemon, for example porygon</legend>
         <input
+          #key="ngModel"
+          name="key"
           type="text"
           class="form-control"
           placeholder="search your pokemon"
+          [(ngModel)]="keySearch"
           aria-label=""
           aria-describedby="basic-addon2"
         />

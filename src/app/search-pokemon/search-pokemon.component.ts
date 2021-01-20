@@ -21,7 +21,6 @@ export class SearchPokemonComponent implements OnInit {
     }
     this.apiService.getPokemon(this.keySearch).subscribe(
       (data) => {
-        console.log(this.apiService.pokemonSelected);
         this.apiService.pokemonSelected = data;
         console.log(this.apiService.pokemonSelected);
       }
