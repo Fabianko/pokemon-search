@@ -9,6 +9,7 @@ import {ApiPokemonService} from '../api-pokemon.service';
 })
 export class SearchPokemonComponent implements OnInit {
   keySearch: string = "porygon";
+  display_not_found: boolean = false;
   constructor(public apiService: ApiPokemonService) { }
 
   ngOnInit(): void {
@@ -21,8 +22,12 @@ export class SearchPokemonComponent implements OnInit {
     }
     this.apiService.getPokemon(this.keySearch).subscribe(
       (data) => {
+        this.display_not_found = false;
         this.apiService.pokemonSelected = data;
         console.log(this.apiService.pokemonSelected);
+      },
+      (error) => {
+        this.display_not_found = true;
       }
     );
   }

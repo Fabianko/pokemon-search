@@ -1,6 +1,6 @@
 <div class="row cards">
   <div class="col col-xs-12">
-    <form>
+    <form (ngSubmit)="searchPokemon()">
       <div class="input-group mb-3">
         <legend>search your favorite pokemon, for example porygon</legend>
         <input
@@ -14,9 +14,13 @@
           aria-describedby="basic-addon2"
         />
         <div class="input-group-append">
-          <button class="btn btn-primary" (click)="searchPokemon()" type="button">search</button>
+          <button type="submit" class="btn btn-primary" (click)="searchPokemon()" type="button">search</button>
         </div>
       </div>
     </form>
+    <div class="alert alert-dismissible alert-primary" *ngIf="display_not_found">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Oh sorry!</strong> pokemon <strong>{{keySearch}}</strong> not found 
+    </div>
   </div>
 </div>
