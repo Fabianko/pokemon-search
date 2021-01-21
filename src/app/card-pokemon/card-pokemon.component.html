@@ -1,6 +1,7 @@
 <div *ngIf="pokemonSelected" class="card border-primary mb-3">
   <div class="card-header">
     <p class="poke-name">
+        <img src="{{pokemonSelected.sprites.front_default}}" alt="" style="width:50px;">
         {{ pokemonSelected.name }}
         <span class="poke-id">
             [{{ pokemonSelected.id }}]
